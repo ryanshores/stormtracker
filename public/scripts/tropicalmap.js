@@ -150,6 +150,16 @@ function publicSites(sites){
       position: new google.maps.LatLng(site.coordinates[1], site.coordinates[0]),
       icon: circle(site.color)
     });
+    var contentWindow = site.name;
+    var infoWindow = new google.maps.InfoWindow({
+        content: contentWindow
+    });
+    marker.addListener('click', function() {
+        infoWindow.open(map2, marker);
+    });
+    google.maps.event.addListener(map2, "click", function(event) {
+      infoWindow.close();
+    });
     markers.push(marker);
   });
   return markers;
