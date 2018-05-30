@@ -62,7 +62,6 @@ function getNewStorms(){
         // Get hurricanes
         function(done){
             request(stormsURL, function(err, responce, body){
-                console.log(body);
                 if( err ){
                     done( true );
                 } else {
@@ -94,7 +93,6 @@ function getNewStorms(){
         },
         // Check if storm is in db already if not add
         function(storms, done){
-            console.log(storms);
             storms.forEach(function(storm){
                 Storms.findOne({number: storm.number}, function( err, doc ){
                     if( err ){

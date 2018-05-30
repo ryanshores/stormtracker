@@ -30,88 +30,9 @@
   <!-- Tab panes -->
   <div class="tab-content">
     <div class="tab-pane active" id="storms" role="tabpanel" aria-labelledby="storms-tab">
-      <div class="row" style="width: 100%;">
-        <div class="col">
-          <div class="row mx-auto">
-            <% storms.forEach(function(storm){ %>
-              <% if(storm.isDup != true) { %>
-                <div class="card mb-3 stormCard mx-auto mx-md-3 mx-xl-auto">
-                  <div class="card-header">
-                    <h5 class="d-inline"><%= storm.name %></h5>
-                    <% if( storm.category < 1){ %>
-                    <% } else { %>
-                    <h5 class="text-right d-inline">(CAT <%= storm.category %>)</h5>
-                    <% } %>
-                  </div>
-                  <div class="card-body">
-                    <div class="row no-gutters mb-3">
-                      <div class="col">
-                        <div class="row ">
-                          <div class="col-2 pl-2"><i class="fas fa-forward weatherIcon" data-fa-transform="down-6"></i></div>
-                          <div class="col-9">
-                            <div class="row text-muted small ml-0">Speed (mph)</div>
-                            <div class="row ml-0 norm"><%= storm.fspeed %></div>
-                          </div>  
-                        </div>
-                        
-                      </div>
-                      <div class="col">
-                        <div class="row ">
-                          <div class="col-2"><i class="fas fa-compass weatherIcon" data-fa-transform="down-6"></i></div>
-                          <div class="col-9">
-                            <div class="row text-muted small ml-0">Direction</div>
-                            <div class="row ml-0 norm"><%= storm.direction %>°</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col">
-                        <div class="row ">
-                          <div class="col-2"><i class="fas fa-map-marker weatherIcon" data-fa-transform="down-6"></i></div>
-                          <div class="col-9 pr-0">
-                            <div class="row text-muted small ml-0">Location</div>
-                            <div class="ml-0 norm"><%= storm.lat %>°, <%= storm.lng %>°</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row no-gutters">
-                      <div class="col">
-                        <div class="row ">
-                          <div class="col-2 d-flex align-items-center pl-2"><img class="weatherIcon" src="/icons/wind.png"></div>
-                          <div class="col-9">
-                            <div class="row text-muted small ml-0">Wind (mph)</div>
-                            <div class="row ml-0 norm"><%= storm.wind %> mph</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col">
-                        <div class="row ">
-                          <div class="col-2 d-flex align-items-center"><img class="weatherIcon" src="/icons/gust.png"></div>
-                          <div class="col-9">
-                            <div class="row text-muted small ml-0">Gusts (mph)</div>
-                            <div class="row ml-0 norm"><%= storm.gusts %></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col">
-                        <div class="row ">
-                          <div class="col-2 d-flex align-items-center"><img class="weatherIcon" src="/icons/pressure.png"></div>
-                          <div class="col-9 pr-0">
-                            <div class="row text-muted small ml-0">Pressure</div>
-                            <div class="row ml-0 norm"><%= storm.pressure %></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              <% } %>
-            <% }); %>
-          </div>
-        </div>
-
-        <div class="col-12 col-xl-8">
-          <div id="map2" class="map mt-0 mt-lg-2 rounded"></div> 
+      <div class="row ml-0" style="width: 100%;">
+        <div class="col-12 col-lg-8">
+          <div id="map2" class="map mt-0 rounded"></div> 
           <div id="legend" class="row align-items-center align-items-stretch" style="margin: 0;">
             <div class="col text-center shadow" style="background: #46719A">TS</div>
             <div class="col text-center shadow" style="background: #3AAD00">CAT 1</div>
@@ -125,6 +46,82 @@
           and the 
           <a class="muted" href="https://www.nhc.noaa.gov/">NHC</a></p>
           <p class=" mt-1 credited text-center muted"><a class="muted" href="#">Legend</a></p>
+        </div>
+        <div class="col-12 col-lg-4 ">
+          <% storms.forEach(function(storm){ %>
+            <% if(storm.isDup != true) { %>
+              <div class="card mb-3">
+                <div class="card-header">
+                  <h5 class="d-inline"><%= storm.name %></h5>
+                  <% if( storm.category < 1){ %>
+                  <% } else { %>
+                  <h5 class="text-right d-inline">(CAT <%= storm.category %>)</h5>
+                  <% } %>
+                </div>
+                <div class="card-body">
+                  <div class="row no-gutters mb-3">
+                    <div class="col">
+                      <div class="row ">
+                        <div class="col-2 pl-2"><i class="fas fa-forward weatherIcon" data-fa-transform="down-6"></i></div>
+                        <div class="col-9">
+                          <div class="row text-muted small ml-0">Speed (mph)</div>
+                          <div class="row ml-0 norm"><%= storm.fspeed %></div>
+                        </div>  
+                      </div>
+                      
+                    </div>
+                    <div class="col">
+                      <div class="row ">
+                        <div class="col-2"><i class="fas fa-compass weatherIcon" data-fa-transform="down-6"></i></div>
+                        <div class="col-9">
+                          <div class="row text-muted small ml-0">Direction</div>
+                          <div class="row ml-0 norm"><%= storm.direction %>°</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="row ">
+                        <div class="col-2"><i class="fas fa-map-marker weatherIcon" data-fa-transform="down-6"></i></div>
+                        <div class="col-9 pr-0">
+                          <div class="row text-muted small ml-0">Location</div>
+                          <div class="ml-0 norm"><%= storm.lat %>°, <%= storm.lng %>°</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row no-gutters">
+                    <div class="col">
+                      <div class="row ">
+                        <div class="col-2 d-flex align-items-center pl-2"><img class="weatherIcon" src="/icons/wind.png"></div>
+                        <div class="col-9">
+                          <div class="row text-muted small ml-0">Wind (mph)</div>
+                          <div class="row ml-0 norm"><%= storm.wind %> mph</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="row ">
+                        <div class="col-2 d-flex align-items-center"><img class="weatherIcon" src="/icons/gust.png"></div>
+                        <div class="col-9">
+                          <div class="row text-muted small ml-0">Gusts (mph)</div>
+                          <div class="row ml-0 norm"><%= storm.gusts %></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="row ">
+                        <div class="col-2 d-flex align-items-center"><img class="weatherIcon" src="/icons/pressure.png"></div>
+                        <div class="col-9 pr-0">
+                          <div class="row text-muted small ml-0">Pressure</div>
+                          <div class="row ml-0 norm"><%= storm.pressure %></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% } %>
+          <% }); %>
         </div>
     </div>
     </div>

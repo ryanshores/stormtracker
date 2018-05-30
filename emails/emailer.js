@@ -69,20 +69,8 @@ var emailerObj = {
     async.waterfall([
       // Get list of users email and name
       function(done){
-        Users.find({}, function( err, users ){
-          if( err ) { 
-            console.log( err );
-            done(err);
-          }
-          users.forEach(function(user){
-            var userObj = {
-              name: user.name,
-              email: user.email
-            };
-            emails.push(userObj);
-          });
-          done(null, emails);
-        });
+        emails = [{name: "Ryan Shores", email: "ryanshores@us.matdan.com"}, {name: "William Cho", email: "williamcho@matdan.com"}];
+        done(null, emails);
       },
       // Make the message
       function(emails, done){
@@ -119,20 +107,8 @@ var emailerObj = {
     async.waterfall([
       // Get list of users email and name
       function(done){
-        Users.find({}, function( err, users ){
-          if( err ) { 
-            console.log( err );
-            done(err);
-          }
-          users.forEach(function(user){
-            var userObj = {
-              name: user.name,
-              email: user.email
-            };
-            emails.push(userObj);
-          });
-          done(null, emails);
-        });
+        emails = [{name: "Ryan Shores", email: "ryanshores@us.matdan.com"}, {name: "William Cho", email: "williamcho@matdan.com"}];
+        done(null, emails);
       },
       // Make the message
       function(emails, done){
