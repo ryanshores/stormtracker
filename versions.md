@@ -20,3 +20,7 @@
 * Finished May 30, 2018 - b/dev
 * Released May 30, 2018 - h/staging
 * Build ID 005.030.020.018
+
+### Version 1.3
+* Started May 29, 2018 - b/v1.3
+* Build ID 000.000.000.000
