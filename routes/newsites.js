@@ -9,7 +9,7 @@ var Sites       = require("../models/sites");
 
 // GET - Index - /sites - get - Sites.find()
 router.get("/", function(req, res) {
-    newSites.find({}).sort({"Area Code": 1}).exec(function(err, foundNewSites){
+    newSites.find({}).sort({ "Area Code": 1, "Block Number": 1, "Structure Name": 1 }).exec(function(err, foundNewSites){
         if(err) {
             console.log(err);
         } else {
@@ -19,7 +19,7 @@ router.get("/", function(req, res) {
 });
 
 router.post("/search", function(req, res){
-    newSites.find( { "Area Code": req.body.areaCode } ).sort( { "Area Code": 1 } ).exec( function( err, foundNewSites ) {
+    newSites.find( { "Area Code": req.body.areaCode } ).sort( { "Area Code": 1, "Block Number": 1, "Structure Name": 1 } ).exec( function( err, foundNewSites ) {
         if( err ) {
             console.log( err );
         } else {
@@ -46,25 +46,6 @@ router.post("/edit", function(req, res){
 
 
 router.post("/add", middleware.isLoggedIn, middleware.isAdmin, function(req, res){
-    // var selected = req.body.array;
-   
-    // var assetArr = [];
-    // selected.forEach(function(asset){
-    //     var newSite = new Sites({
-    //         geometry: {coordinates: [ asset['Longitude'], asset['Latitude'] ]},
-    //         properties: {
-    //             name: asset['Structure Name'],
-    //             group: req.user.group,
-    //             airgap: asset['Air Gap'],
-    //             type: asset['type'],
-    //             'areaCode': asset['Area Code'],
-    //             'blockNumber': asset['Block Number'],
-    //             'field': asset['Field'],
-    //             'waterDepth': asset['Water Depth']
-    //         }
-    //     });
-    //     assetArr.push(newSite);
-    // });
     
     var asset = req.body.asset;
     asset.properties.group = req.user.group;
