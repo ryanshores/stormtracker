@@ -16,6 +16,10 @@
 * Build ID 005.023.020.018
 
 ### Version 1.2.1
+Enchancements/
+    Email: send to Will and Ryan
+    tracking: moved storms under map
+        Added names to the points on the public map
 * Started May 29, 2018
 * Finished May 30, 2018 - b/dev
 * Released May 30, 2018 - h/staging
