@@ -24,7 +24,9 @@ body {
 }
 
 .stormtracker {
-    max-width: 80%;
+    max-width: 500px;
+    min-width: 200px;
+    width: 50%;
     height: auto;
     filter: drop-shadow(1px 1px 1px black);
 }
