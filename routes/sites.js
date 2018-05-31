@@ -57,7 +57,7 @@ router.post("/new", middleware.isLoggedIn, middleware.isAdmin, function(req, res
 //                                  READ                                      //
 // GET - Index - /sites - get - Sites.find()
 router.get("/", middleware.isLoggedIn, middleware.isActive, function(req, res) {
-    Sites.find({'properties.group': req.user.group}).sort([['properties.type', 1], ['properties.areaCode', 1], ['properties.blockNumber', 1], ['properties.name', 1]]).exec(function(err, foundSites) {
+    Sites.find({'properties.group': req.user.group}).sort({ 'properties.areaCode': 1, 'properties.blockNumber': 1, 'properties.name': 1 }).exec(function(err, foundSites) {
         if(err) {
             req.flash("warning", "Could not find and sort sites");
             res.redirect("/home");
